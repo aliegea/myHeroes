@@ -1,1 +1,51 @@
-<p>hero-detail works!</p>
+<mat-grid-list cols="1" *ngIf="!heroe; else heroeDiv">
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+<ng-template #heroeDiv>
+  <div class="detail-container">
+    <div class="img-container">
+      <h1>{{ heroe.name }}</h1>
+
+      <mat-divider></mat-divider>
+      <br />
+      <img
+        src="{{ heroe.thumbnail.path }}.{{ heroe.thumbnail.extension }}"
+        alt="image of {{ heroe.name }}"
+      />
+    </div>
+    <div class="info-container">
+      <h1>{{ heroe.name }}</h1>
+
+      <mat-divider></mat-divider>
+      <br />
+      <h4>Descripción:</h4>
+
+      <p>{{ heroe.description }}</p>
+      <mat-list>
+        <span>Marvel Url:</span>
+        <mat-list-item> {{ heroe.resourceURI }}</mat-list-item>
+        <span>Series disponibles:</span>
+        <mat-list-item>{{ heroe.series.available }}</mat-list-item>
+        <span>Stories disponibles:</span>
+        <mat-list-item>{{ heroe.stories.available }}</mat-list-item>
+        <span>Events disponibles:</span>
+        <mat-list-item>{{ heroe.events.available }}</mat-list-item>
+        <span>Comics disponibles:</span>
+        <mat-list-item>{{ heroe.comics.available }}</mat-list-item>
+      </mat-list>
+
+      <br />
+      <button mat-raised-button color="warn" (click)="regresar()">
+        Regresar
+      </button>
+    </div>
+  </div>
+</ng-template>
+<div class="comic-container">
+  <h2>Títulos cómics</h2>
+  <ul *ngFor="let item of heroe.comics.items">
+    <li>{{ item.name | uppercase }}</li>
+  </ul>
+</div>

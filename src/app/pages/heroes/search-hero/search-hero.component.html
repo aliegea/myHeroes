@@ -1,1 +1,37 @@
-<p>search-hero works!</p>
+<div class="buscador-container">
+  <div>
+    <h1>Buscador de Héroes</h1>
+    <mat-divider></mat-divider>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre Héroe</mat-label>
+    <input
+      type="text"
+      placeholder="Nombre Héroe"
+      aria-label="Nombre Héroe"
+      matInput
+      [(ngModel)]="termino"
+      [matAutocomplete]="auto"
+      (input)="buscando()"
+    />
+
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="opcionSel($event)"
+    >
+      <mat-option
+        class="errMessage"
+        *ngIf="!heroe && termino.length > 0"
+        [value]=""
+      >
+        No hemos encontrado ninguna coincidencia con la palabra {{ termino }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+
+<div *ngIf="heroe" class="selectedHero">
+  <app-hero-card [heroe]="heroe"></app-hero-card>
+</div>

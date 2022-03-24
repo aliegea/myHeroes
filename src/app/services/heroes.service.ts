@@ -15,8 +15,22 @@ export class HeroesService {
   getHeroes(): Observable<Heroe[]> {
     return this.http
       .get<Heroe[]>(
-        `${this.baseUrl}//characters?ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
+        `${this.baseUrl}/characters?ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
       )
       .pipe(map((data: any) => data.data.results));
+  }
+  getHeroesbyId(id: number): Observable<Heroe> {
+    return this.http
+      .get<Heroe>(
+        `${this.baseUrl}/characters/${id}?ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
+      )
+      .pipe(map((data: any) => data.data.results[0]));
+  }
+  getSugerencias(termino: string): Observable<Heroe> {
+    return this.http
+      .get<Heroe>(
+        `${this.baseUrl}/characters?name=${termino}&ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
+      )
+      .pipe(map((data: any) => data.data.results[0]));
   }
 }

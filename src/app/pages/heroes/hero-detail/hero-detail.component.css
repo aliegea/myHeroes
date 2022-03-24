@@ -1,0 +1,32 @@
+.detail-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 40px;
+}
+.info-container {
+  padding-left: 40px;
+}
+.img-container {
+  min-width: 45vw;
+}
+.comic-container {
+  padding: 40px;
+}
+.comic-container li {
+  text-decoration: none;
+  color: var(--red);
+}
+p {
+  max-width: 400px;
+}
+img {
+  display: flex;
+  border-radius: 10px;
+  width: 96%;
+  margin: auto;
+  box-shadow: 0 0 8px 0 var(--red);
+}
+img:hover {
+  box-shadow: 0 0 12px 0 var(--red);
+}

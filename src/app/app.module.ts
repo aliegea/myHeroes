@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { HeroesListComponent } from './pages/heroes/heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.component';
@@ -36,6 +37,7 @@ import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.comp
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

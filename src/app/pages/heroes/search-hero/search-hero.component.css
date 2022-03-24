@@ -1,0 +1,19 @@
+.buscador-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+  margin-top: 15px;
+}
+.mat-form-field {
+  margin: auto;
+  width: 90%;
+  margin-top: 30px;
+}
+.selectedHero {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
