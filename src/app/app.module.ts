@@ -4,6 +4,8 @@ import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
 import { HeroesListComponent } from './pages/heroes/heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.component';
 import { TeamListComponent } from './pages/myTeam/team-list/team-list.component';
@@ -33,6 +35,7 @@ import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
