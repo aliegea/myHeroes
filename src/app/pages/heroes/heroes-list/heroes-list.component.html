@@ -1,4 +1,8 @@
-<p>heroes-list works!</p>
-<pre
-  >{{ heroes | json }}
-</pre>
+<h1>Listado de Heroes</h1>
+<mat-divider></mat-divider>
+<br />
+<div class="listContainer">
+  <div class="cardContainer" *ngFor="let heroe of heroes">
+    <app-hero-card [heroe]="heroe"></app-hero-card>
+  </div>
+</div>

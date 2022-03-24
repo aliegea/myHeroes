@@ -1,1 +1,16 @@
-<p>hero-card works!</p>
+<figure>
+  <img
+    src="{{ heroe.thumbnail.path }}.{{ heroe.thumbnail.extension }}"
+    alt="angular shopping cart demo"
+  />
+  <figcaption>
+    <h3>{{ heroe.name }}</h3>
+
+    <button mat-raised-button color="warn" [routerLink]="['/teamEdit']">
+      Añadir
+    </button>
+    <button mat-raised-button class="info" [routerLink]="['/', heroe.id]">
+      Leer más
+    </button>
+  </figcaption>
+</figure>
