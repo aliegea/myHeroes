@@ -13,8 +13,21 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
 import { TeamFormComponent } from './pages/myTeam/team-form/team-form.component';
 import { ConfirmUpdateComponent } from './components/confirm-update/confirm-update.component';
 
+import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.component';
+
 @NgModule({
-  declarations: [AppComponent, HeroesListComponent, HeroDetailComponent, TeamListComponent, HeroCardComponent, ConfirmAddComponent, ConfirmDeleteComponent, TeamFormComponent, ConfirmUpdateComponent],
+  declarations: [
+    AppComponent,
+    HeroesListComponent,
+    HeroDetailComponent,
+    TeamListComponent,
+    HeroCardComponent,
+    ConfirmAddComponent,
+    ConfirmDeleteComponent,
+    TeamFormComponent,
+    ConfirmUpdateComponent,
+    SearchHeroComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

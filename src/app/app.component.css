@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+.mat-sidenav {
+  background-color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.5;
+  width: 220px;
+}
+.mat-toolbar {
+  height: 60px;
+  font-size: 16px;
+  background-color: var(--dark);
+}
+.logo {
+  margin-top: 10px;
+  padding: 10px;
+}
+.homeToolbar {
+  background-color: var(--red);
+  cursor: pointer;
+}
+.mat-divider {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
