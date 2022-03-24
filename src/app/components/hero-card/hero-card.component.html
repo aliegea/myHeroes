@@ -1,15 +1,20 @@
 <figure>
   <img
     src="{{ heroe.thumbnail.path }}.{{ heroe.thumbnail.extension }}"
-    alt="angular shopping cart demo"
+    alt="{{ heroe.name }}"
   />
   <figcaption>
     <h3>{{ heroe.name }}</h3>
 
-    <button mat-raised-button color="warn" [routerLink]="['/teamEdit']">
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="addHero()"
+      [routerLink]="['/heroeTeam']"
+    >
       Añadir
     </button>
-    <button mat-raised-button class="info" [routerLink]="['/', heroe.id]">
+    <button mat-raised-button class="green" [routerLink]="['/', heroe.id]">
       Leer más
     </button>
   </figcaption>

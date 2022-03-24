@@ -37,15 +37,18 @@
       </mat-list>
 
       <br />
-      <button mat-raised-button color="warn" (click)="regresar()">
-        Regresar
+      <button mat-raised-button color="warn" (click)="addHeroe()">
+        Añadir
+      </button>
+      <button mat-raised-button class="green" (click)="regresar()">
+        Volver a listado
       </button>
     </div>
   </div>
+  <div class="comic-container">
+    <h2>Títulos cómics</h2>
+    <ul *ngFor="let item of heroe.comics.items">
+      <li>{{ item.name | uppercase }}</li>
+    </ul>
+  </div>
 </ng-template>
-<div class="comic-container">
-  <h2>Títulos cómics</h2>
-  <ul *ngFor="let item of heroe.comics.items">
-    <li>{{ item.name | uppercase }}</li>
-  </ul>
-</div>

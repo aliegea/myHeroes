@@ -1,0 +1,13 @@
+<figure>
+  <img
+    src="{{ heroe.thumbnail.path }}.{{ heroe.thumbnail.extension }}"
+    alt="{{ heroe.name }}"
+  />
+  <figcaption>
+    <h3>{{ heroe.name }}</h3>
+
+    <button mat-raised-button color="warn" (click)="sendItemToRemove(heroe)">
+      Eliminar
+    </button>
+  </figcaption>
+</figure>

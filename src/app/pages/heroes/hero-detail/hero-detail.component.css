@@ -30,3 +30,6 @@ img {
 img:hover {
   box-shadow: 0 0 12px 0 var(--red);
 }
+button {
+  margin: 5px;
+}

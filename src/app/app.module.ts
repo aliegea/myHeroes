@@ -17,6 +17,7 @@ import { TeamFormComponent } from './pages/myTeam/team-form/team-form.component'
 import { ConfirmUpdateComponent } from './components/confirm-update/confirm-update.component';
 
 import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.component';
+import { SelectedHeroCardComponent } from './components/selected-hero-card/selected-hero-card.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.comp
     TeamFormComponent,
     ConfirmUpdateComponent,
     SearchHeroComponent,
+    SelectedHeroCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,15 @@
-<p>team-list works!</p>
+<h1>Team Heroes</h1>
+
+<mat-divider></mat-divider>
+<br />
+<div class="listContainer">
+  <div class="cardContainer" *ngFor="let heroe of teamHeroes">
+    <app-selected-hero-card
+      [heroe]="heroe"
+      (remove)="removeHeroe($event)"
+    ></app-selected-hero-card>
+  </div>
+</div>
+<div class="btnDiv">
+  <button mat-raised-button routerLink="/heroeslist">Volver al listado</button>
+</div>

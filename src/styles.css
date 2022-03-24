@@ -1,6 +1,7 @@
 :root {
   --red: #e8442e;
   --dark: #151515;
+  --green: #316518;
 }
 
 html,
@@ -14,4 +15,7 @@ body {
 }
 .spacer {
   flex: 1 1 auto;
+}
+.green {
+  background-color: var(--green);
 }

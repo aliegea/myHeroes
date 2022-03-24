@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Heroe } from 'src/app/interfaces/HeroInterface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-hero-card',
@@ -9,7 +10,11 @@ import { Heroe } from 'src/app/interfaces/HeroInterface';
 export class HeroCardComponent implements OnInit {
   @Input() heroe!: Heroe;
 
-  constructor() {}
+  constructor(private heroesService: HeroesService) {}
+
+  addHero() {
+    this.heroesService.sendHeroe(this.heroe);
+  }
 
   ngOnInit(): void {}
 }

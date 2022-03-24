@@ -28,4 +28,8 @@ export class HeroDetailComponent implements OnInit {
   regresar() {
     this.router.navigate(['/heroeslist']);
   }
+  addHeroe() {
+    this.heroesService.sendHeroe(this.heroe);
+    this.router.navigate(['/heroeTeam']);
+  }
 }
