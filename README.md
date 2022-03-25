@@ -1,27 +1,46 @@
-# MyHeroes
+# Project Title
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+My Marvel Heroes App
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+App with using Marvel Api to get heroes . You can search by hero name, see some hero details or select it to add it to your heroes team.
+You can delete heroes from you team and edit your tam details.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+### Dependencies
+Install Node.js.
+Install Angular CLI: 13.2.4.
+Run npm install -g @angular/cli to install Globally or npm install @angular/cli to install locally. To install Install Specific Version (Example: 13.2.4) npm install -g @angular/cli@13.2.4.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installing
 
-## Running unit tests
+Clone this project repository.
+Run npm install from project directory..
+Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Executing program
 
-## Running end-to-end tests
+Install Node.js.
+Install Angular CLI: 13.2.6.
+Run npm install -g @angular/cli to install Globally or npm install @angular/cli to install locally. To install Install Specific Version (Example: 13.2.6) npm install -g @angular/cli@13.2.6.
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Built with
 
-## Further help
+@angular/cli                    13.2.6
+@angular/flex-layout            13.0.0-beta.38
+@angular/material               13.3.0
+@schematics/angular             13.2.6
+rxjs                            7.5.5
+typescript                      4.5.5
+HTML5/CSS
+    
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+
