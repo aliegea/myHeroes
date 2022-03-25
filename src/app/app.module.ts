@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeroesListComponent } from './pages/heroes/heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.component';
@@ -42,6 +43,7 @@ import { ComicsCardComponent } from './components/comics-card/comics-card.compon
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
