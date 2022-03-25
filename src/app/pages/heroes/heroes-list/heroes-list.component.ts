@@ -9,7 +9,7 @@ import { HeroesService } from '../../../services/heroes.service';
 })
 export class HeroesListComponent implements OnInit {
   heroes!: Heroe[];
-  heroeImg: string = '';
+
   constructor(private heroesService: HeroesService) {}
 
   ngOnInit(): void {

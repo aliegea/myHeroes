@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, Subject } from 'rxjs';
+import { Comic } from '../interfaces/comicsInterface';
 import { Heroe } from '../interfaces/HeroInterface';
 
 @Injectable({
@@ -27,12 +28,19 @@ export class HeroesService {
       )
       .pipe(map((data: any) => data.data.results[0]));
   }
-  getSugerencias(termino: string): Observable<Heroe> {
+  getSugerencias(termino: string): Observable<Heroe[]> {
     return this.http
-      .get<Heroe>(
-        `${this.baseUrl}/characters?name=${termino}&ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
+      .get<Heroe[]>(
+        `${this.baseUrl}/characters?nameStartsWith=${termino}&ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
       )
-      .pipe(map((data: any) => data.data.results[0]));
+      .pipe(map((data: any) => data.data.results));
+  }
+  getComicByHeroId(id: number): Observable<Comic[]> {
+    return this.http
+      .get<Comic>(
+        `${this.baseUrl}/characters/${id}/comics?limit=4&ts=1000&apikey=${this.apiKey}&hash=${this.hash}`
+      )
+      .pipe(map((data: any) => data.data.results));
   }
 
   sendHeroe(heroe: Heroe) {

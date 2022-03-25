@@ -18,6 +18,7 @@ import { ConfirmUpdateComponent } from './components/confirm-update/confirm-upda
 
 import { SearchHeroComponent } from './pages/heroes/search-hero/search-hero.component';
 import { SelectedHeroCardComponent } from './components/selected-hero-card/selected-hero-card.component';
+import { ComicsCardComponent } from './components/comics-card/comics-card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SelectedHeroCardComponent } from './components/selected-hero-card/selec
     ConfirmUpdateComponent,
     SearchHeroComponent,
     SelectedHeroCardComponent,
+    ComicsCardComponent,
   ],
   imports: [
     BrowserModule,

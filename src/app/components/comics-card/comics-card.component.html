@@ -1,0 +1,10 @@
+<figure>
+  <img
+    src="{{ comic.thumbnail.path }}.{{ comic.thumbnail.extension }}"
+    alt="{{ comic.title }}"
+  />
+  <figcaption>
+    <h3>{{ comic.title | titlecase }}</h3>
+    <p>{{ comic.pageCount }} pages</p>
+  </figcaption>
+</figure>

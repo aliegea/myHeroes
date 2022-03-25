@@ -1,19 +1,19 @@
 .buscador-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 h1 {
   text-align: center;
   margin-top: 15px;
 }
 .mat-form-field {
-  margin: auto;
-  width: 90%;
-  margin-top: 30px;
+  width: 300px;
+  margin: 20px 30px 10px 0;
 }
 .selectedHero {
   padding: 40px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

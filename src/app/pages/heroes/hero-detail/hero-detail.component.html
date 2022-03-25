@@ -24,8 +24,6 @@
 
       <p>{{ heroe.description }}</p>
       <mat-list>
-        <span>Marvel Url:</span>
-        <mat-list-item> {{ heroe.resourceURI }}</mat-list-item>
         <span>Series disponibles:</span>
         <mat-list-item>{{ heroe.series.available }}</mat-list-item>
         <span>Stories disponibles:</span>
@@ -45,10 +43,9 @@
       </button>
     </div>
   </div>
-  <div class="comic-container">
-    <h2>Títulos cómics</h2>
-    <ul *ngFor="let item of heroe.comics.items">
-      <li>{{ item.name | uppercase }}</li>
-    </ul>
+  <div class="listContainer">
+    <div class="cardContainer" *ngFor="let comic of comics">
+      <app-comics-card [comic]="comic"></app-comics-card>
+    </div>
   </div>
 </ng-template>

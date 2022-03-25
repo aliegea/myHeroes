@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Heroe } from 'src/app/interfaces/HeroInterface';
 import { HeroesService } from 'src/app/services/heroes.service';
 
@@ -9,7 +10,7 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class SearchHeroComponent implements OnInit {
   termino: string = '';
-  heroe!: Heroe;
+  heroes!: Heroe[];
   heroeSeleccionado!: Heroe | '';
   constructor(private heroesServ: HeroesService) {}
 
@@ -17,7 +18,7 @@ export class SearchHeroComponent implements OnInit {
   buscando() {
     this.heroesServ
       .getSugerencias(this.termino)
-      .subscribe((resp) => (this.heroe = resp));
+      .subscribe((resp) => (this.heroes = resp));
   }
   opcionSel(event: any) {
     if (!event.option.value) {

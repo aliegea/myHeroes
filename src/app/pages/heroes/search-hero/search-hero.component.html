@@ -1,37 +1,32 @@
 <div class="buscador-container">
-  <div>
-    <h1>Buscador de Héroes</h1>
-    <mat-divider></mat-divider>
-  </div>
-
   <mat-form-field appearance="fill">
-    <mat-label>Nombre Héroe</mat-label>
+    <mat-label>Buscar héroe por nombre</mat-label>
     <input
       type="text"
-      placeholder="Nombre Héroe"
+      placeholder="Buscar héroe por nombre..."
       aria-label="Nombre Héroe"
       matInput
       [(ngModel)]="termino"
       [matAutocomplete]="auto"
       (input)="buscando()"
     />
-
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
     <mat-autocomplete
       autoActiveFirstOption
       #auto="matAutocomplete"
       (optionSelected)="opcionSel($event)"
     >
-      <mat-option
-        class="errMessage"
-        *ngIf="!heroe && termino.length > 0"
-        [value]=""
-      >
+      <mat-option class="errMessage" *ngIf="!heroes && !termino" [value]="">
         No hemos encontrado ninguna coincidencia con la palabra {{ termino }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </div>
-
-<div *ngIf="heroe" class="selectedHero">
-  <app-hero-card [heroe]="heroe"></app-hero-card>
+<div *ngIf="heroes" class="selectedHero">
+  <div *ngFor="let heroe of heroes">
+    <app-hero-card [heroe]="heroe"></app-hero-card>
+  </div>
 </div>
+<mat-divider> </mat-divider>

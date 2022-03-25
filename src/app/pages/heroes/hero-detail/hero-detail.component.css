@@ -7,6 +7,7 @@
 .info-container {
   padding-left: 40px;
 }
+
 .img-container {
   min-width: 45vw;
 }
@@ -32,4 +33,27 @@ img:hover {
 }
 button {
   margin: 5px;
+}
+.listContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 40px;
+}
+.cardContainer {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  max-width: 100%;
+}
+
+/* custom styles for mobile & ipad devices */
+@media screen and (max-width: 900px) {
+  .info-container {
+    padding: 10px;
+  }
+  .detail-container {
+    padding-left: 10px;
+  }
 }
