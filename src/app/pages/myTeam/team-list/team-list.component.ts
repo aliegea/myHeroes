@@ -6,6 +6,7 @@ import { Heroe } from 'src/app/interfaces/HeroInterface';
 import { MySelectedHero } from 'src/app/interfaces/MySelectedHero';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { TeamService } from '../../../services/team.service';
+import { MyTeam } from '../../../interfaces/MyTeam';
 
 @Component({
   selector: 'app-team-list',
@@ -17,6 +18,11 @@ export class TeamListComponent implements OnInit {
   heroes!: Heroe[];
   heroe!: Heroe;
   userData: any;
+  edit: boolean = false;
+  myTeam: MyTeam = {
+    nombre: 'My Heroes',
+    descripcion: 'Mis héroes favoritos',
+  };
 
   constructor(
     private heroesServ: HeroesService,
@@ -28,11 +34,13 @@ export class TeamListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.teamServ.getSessionHero(this.teamHeroes);
-
     this.heroesServ.getHeroe().subscribe((resp) => {
       this.addToTeam(resp);
     });
+    this.teamServ.getTeamData().subscribe((resp) => {
+      this.myTeam = resp;
+    });
+    this.myTeam = JSON.parse(localStorage.getItem('My Team') || '');
     this.teamHeroes = JSON.parse(
       this.teamServ.getSessionHero(this.teamHeroes) || ''
     );
@@ -55,6 +63,7 @@ export class TeamListComponent implements OnInit {
       newHeroe.thumbnail = heroe.thumbnail;
 
       this.teamHeroes.push(newHeroe);
+
       this.teamServ.saveSessionStorage(this.teamHeroes);
     }
   }
@@ -66,5 +75,8 @@ export class TeamListComponent implements OnInit {
       }
     }
     this.teamServ.setData(this.teamHeroes);
+  }
+  editar() {
+    this.edit = !this.edit;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MyTeam } from 'src/app/interfaces/MyTeam';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-team-form',
@@ -14,6 +15,7 @@ import { MyTeam } from 'src/app/interfaces/MyTeam';
 })
 export class TeamFormComponent implements OnInit {
   myTeam!: MyTeam;
+  @Output() myTeamData = new EventEmitter<MyTeam>();
   myForm: FormGroup = this.fb.group({
     nombre: [
       'My Heroes',
@@ -21,7 +23,7 @@ export class TeamFormComponent implements OnInit {
     ],
     descripcion: [
       'Mis héroes favoritos',
-      [Validators.required, Validators.minLength(3), Validators.maxLength(15)],
+      [Validators.required, Validators.minLength(3), Validators.maxLength(50)],
     ],
   });
   isValidForm(field: string) {
@@ -30,15 +32,17 @@ export class TeamFormComponent implements OnInit {
       this.myForm.controls[field]?.touched
     );
   }
-  guardar() {
+
+  addteamData() {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
       return;
     }
     console.log(this.myForm.value);
-    this.myTeam = this.myForm.value;
+    this.teamServ.sendTeamData(this.myForm.value);
+    localStorage.setItem('My Team', JSON.stringify(this.myForm.value));
   }
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private teamServ: TeamService) {}
 
   ngOnInit(): void {}
 }

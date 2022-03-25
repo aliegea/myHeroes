@@ -1,4 +1,4 @@
-export class MyTeam {
-  name!: string;
-  description!: string;
+export interface MyTeam {
+  nombre: string;
+  descripcion: string;
 }

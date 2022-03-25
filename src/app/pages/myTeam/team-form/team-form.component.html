@@ -1,56 +1,24 @@
-<h2>Edita los datos de tu quipo</h2>
+<form [formGroup]="myForm" (ngSubmit)="addteamData()">
+  <input
+    type="text"
+    placeholder="Nombre de tu equipo"
+    formControlName="nombre"
+  />
+  <br />
+  <span class="error" *ngIf="isValidForm('nombre')"
+    >Exribe entre 1 y 15 letras</span
+  >
+  <br />
+  <textarea
+    placeholder="Descripción de tu equipo..."
+    formControlName="descripcion"
+  ></textarea>
+  <br />
+  <span class="error" *ngIf="isValidForm('descripcion')"
+    >Escribe entre 3 y 50 caracteres
+  </span>
 
-<div class="row">
-  <div class="col">
-    <form [formGroup]="myForm" (ngSubmit)="guardar()">
-      <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Producto</label>
-        <div class="col-sm-9">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Nombre de tu equipo"
-            formControlName="nombre"
-          />
-          <span class="form-text text-danger" *ngIf="isValidForm('nombre')"
-            >Exribe entre 1 y 15 letras</span
-          >
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Descripción</label>
-        <div class="col-sm-9">
-          <textarea
-            placeholder="Descripción de tu equipo..."
-            formControlName="descripcion"
-          ></textarea>
+  <br />
 
-          <span class="form-text text-danger" *ngIf="isValidForm('descripcion')"
-            >Escribe entre 3 y 100 caracteres
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <button type="submit" class="btn btn-primary float-end">
-            Guardar
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col">
-    <span>Touched</span><br />
-    {{ myForm.touched }}<br />
-    <span>Pristine</span><br />
-    {{ myForm.pristine }}
-    <br />
-    <span>Valido</span><br />
-    {{ myForm.valid }}
-    <span>valor: {{ myForm.value | json }}</span>
-  </div>
-</div>
+  <button type="submit">Guardar</button>
+</form>

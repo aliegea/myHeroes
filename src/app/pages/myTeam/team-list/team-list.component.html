@@ -1,6 +1,15 @@
-<h1>Team Heroes</h1>
+<h1>{{ myTeam.nombre | uppercase }}</h1>
+
 <div class="heroData">
-  <app-team-form></app-team-form>
+  <div class="header">
+    <h2>
+      {{ myTeam.nombre | uppercase
+      }}<button (click)="editar()"><mat-icon>edit</mat-icon></button>
+    </h2>
+
+    <p>{{ myTeam.descripcion | titlecase }}</p>
+  </div>
+  <div *ngIf="edit"><app-team-form></app-team-form></div>
 </div>
 <mat-divider></mat-divider>
 <br />

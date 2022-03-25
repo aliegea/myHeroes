@@ -10,10 +10,12 @@
   color: #fff;
   max-width: 100%;
 }
-h1 {
+h1,
+h4 {
   text-align: center;
   margin-top: 15px;
 }
+
 .btnDiv {
   display: flex;
   justify-content: center;
@@ -22,4 +24,34 @@ h1 {
 .btnDiv button {
   margin: auto;
   background-color: #316518;
+}
+.heroData {
+  border: 2px solid var(--red);
+  border-radius: 10px;
+
+  margin-left: 40px;
+  max-width: 25%;
+}
+.header {
+  background-color: var(--red);
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+h2 {
+  margin-bottom: 0;
+  background-color: var(--dark);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+h2 button {
+  position: absolute;
+  right: 5px;
+  background-color: var(--dark);
+  color: white;
+  border: none;
+}
+.form {
+  padding: 0;
+  margin: 0;
 }
