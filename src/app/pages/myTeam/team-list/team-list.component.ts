@@ -19,6 +19,8 @@ export class TeamListComponent implements OnInit {
   heroe!: Heroe;
   userData: any;
   edit: boolean = false;
+  heroExists: boolean = false;
+
   myTeam: MyTeam = {
     nombre: 'My Heroes',
     descripcion: 'Mis héroes favoritos',
@@ -48,15 +50,15 @@ export class TeamListComponent implements OnInit {
   }
 
   addToTeam(heroe: MySelectedHero) {
-    let heroExists = false;
     for (let i in this.teamHeroes) {
       if (this.teamHeroes[i].id === heroe.id) {
-        heroExists = true;
+        this.heroExists = true;
+
         break;
       }
     }
 
-    if (!heroExists && this.teamHeroes.length !== 6) {
+    if (!this.heroExists && this.teamHeroes.length !== 6) {
       let newHeroe: MySelectedHero = new MySelectedHero();
       newHeroe.id = heroe.id;
       newHeroe.name = heroe.name;

@@ -13,6 +13,7 @@ textarea {
   border-radius: 10px;
   width: 90%;
   border-bottom: 1px solid var(--red);
+  height: 30px;
 }
 
 textarea.form-control {
