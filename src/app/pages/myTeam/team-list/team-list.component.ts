@@ -46,6 +46,7 @@ export class TeamListComponent implements OnInit {
     this.myTeam = JSON.parse(localStorage.getItem('My Team') || '');
 
     this.teamHeroes = JSON.parse(localStorage.getItem('My Heroes') || '');
+    this.teamHeroes = JSON.parse(sessionStorage.getItem('My Heroes') || '[]');
   }
 
   addToTeam(heroe: MySelectedHero) {
@@ -66,6 +67,7 @@ export class TeamListComponent implements OnInit {
       this.teamHeroes.push(newHeroe);
 
       localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
+      sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
     }
   }
 
@@ -78,6 +80,7 @@ export class TeamListComponent implements OnInit {
     }
 
     localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
+    sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
   }
   editar() {
     this.edit = !this.edit;
