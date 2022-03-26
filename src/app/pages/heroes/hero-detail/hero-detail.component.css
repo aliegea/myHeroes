@@ -57,4 +57,12 @@ button {
   .detail-container {
     padding-left: 10px;
   }
+  img {
+    display: flex;
+    border-radius: 10px;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    box-shadow: 0 0 8px 0 var(--red);
+  }
 }
