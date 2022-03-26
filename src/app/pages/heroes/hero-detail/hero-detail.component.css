@@ -57,6 +57,10 @@ button {
   .detail-container {
     padding-left: 10px;
   }
+  .img-container {
+    min-width: 45vw;
+    padding: 10px;
+  }
   img {
     display: flex;
     border-radius: 10px;

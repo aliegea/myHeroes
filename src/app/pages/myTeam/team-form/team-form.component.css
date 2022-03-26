@@ -17,17 +17,15 @@ textarea {
 }
 
 textarea.form-control {
-  font-size: 1.5rem;
-  letter-spacing: 3px;
   margin-top: 2rem;
 
   color: white;
 }
 
 textarea::placeholder {
-  font-size: 1.5rem;
-  letter-spacing: 3px;
   color: white !important;
+  opacity: 0.8;
+  line-height: 1.5;
 }
 
 input:hover {

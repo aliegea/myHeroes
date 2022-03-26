@@ -39,14 +39,13 @@ export class TeamListComponent implements OnInit {
     this.heroesServ.getHeroe().subscribe((resp) => {
       this.addToTeam(resp);
     });
+
     this.teamServ.getTeamData().subscribe((resp) => {
       this.myTeam = resp;
     });
     this.myTeam = JSON.parse(localStorage.getItem('My Team') || '');
-    this.teamHeroes = JSON.parse(
-      this.teamServ.getSessionHero(this.teamHeroes) || ''
-    );
-    this.teamServ.setData(this.teamHeroes);
+
+    this.teamHeroes = JSON.parse(localStorage.getItem('My Heroes') || '');
   }
 
   addToTeam(heroe: MySelectedHero) {
@@ -66,17 +65,19 @@ export class TeamListComponent implements OnInit {
 
       this.teamHeroes.push(newHeroe);
 
-      this.teamServ.saveSessionStorage(this.teamHeroes);
+      localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
     }
   }
 
   removeHeroe(heroeToRemove: MySelectedHero) {
+    confirm(` Estàs seguro de que deseas eliminar a${heroeToRemove.name}?`);
     for (let i = 0; i < this.teamHeroes.length; i++) {
       if (this.teamHeroes[i] == heroeToRemove) {
         this.teamHeroes.splice(i, 1);
       }
     }
-    this.teamServ.setData(this.teamHeroes);
+
+    localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
   }
   editar() {
     this.edit = !this.edit;
