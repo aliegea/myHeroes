@@ -14,10 +14,9 @@ import { MyTeam } from '../../../interfaces/MyTeam';
   styleUrls: ['./team-list.component.css'],
 })
 export class TeamListComponent implements OnInit {
-  public teamHeroes: MySelectedHero[] = [];
+  public teamHeroes: any;
   heroes!: Heroe[];
   heroe!: Heroe;
-  userData: any;
   edit: boolean = false;
   heroExists: boolean = false;
 
@@ -43,10 +42,14 @@ export class TeamListComponent implements OnInit {
     this.teamServ.getTeamData().subscribe((resp) => {
       this.myTeam = resp;
     });
-    this.myTeam = JSON.parse(localStorage.getItem('My Team') || '');
+    if (this.myTeam.nombre != 'My Heroes') {
+      this.myTeam = JSON.parse(localStorage.getItem('My Team') || '');
+    }
+    if (localStorage.getItem('my Heroes') == undefined) {
+      sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
+    }
 
-    this.teamHeroes = JSON.parse(localStorage.getItem('My Heroes') || '');
-    this.teamHeroes = JSON.parse(sessionStorage.getItem('My Heroes') || '[]');
+    this.teamHeroes = JSON.parse(localStorage.getItem('My Heroes') || '[]');
   }
 
   addToTeam(heroe: MySelectedHero) {
@@ -64,9 +67,15 @@ export class TeamListComponent implements OnInit {
       newHeroe.name = heroe.name;
       newHeroe.thumbnail = heroe.thumbnail;
 
-      this.teamHeroes.push(newHeroe);
-
-      localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
+      this.teamHeroes.push({ ...newHeroe });
+      // this.teamServ.sendTeamData(this.teamHeroes)
+      localStorage.setItem(
+        'My Heroes',
+        JSON.stringify(this.teamHeroes) || '[]'
+      );
+    }
+    console.log(this.teamHeroes);
+    if (localStorage.getItem('my Heroes') == null) {
       sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
     }
   }
@@ -78,9 +87,7 @@ export class TeamListComponent implements OnInit {
         this.teamHeroes.splice(i, 1);
       }
     }
-
-    localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
-    sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes));
+    localStorage.setItem('My Heroes', JSON.stringify(this.teamHeroes) || '[]');
   }
   editar() {
     this.edit = !this.edit;

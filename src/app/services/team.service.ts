@@ -18,4 +18,11 @@ export class TeamService {
   getTeamData(): Observable<MyTeam> {
     return this.subject.asObservable();
   }
+  sendHeroesData(heroesData: any) {
+    this.subject.next(heroesData);
+  }
+
+  getHeroesData(): Observable<any> {
+    return this.subject.asObservable();
+  }
 }
