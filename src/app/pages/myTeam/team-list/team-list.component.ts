@@ -65,7 +65,7 @@ export class TeamListComponent implements OnInit {
         break;
       }
     }
-    if (!this.heroExists && this.teamHeroes !== 6) {
+    if (!this.heroExists && this.teamHeroes.length !== 6) {
       let newHeroe: MySelectedHero = new MySelectedHero();
       newHeroe.id = heroe.id;
       newHeroe.name = heroe.name;
