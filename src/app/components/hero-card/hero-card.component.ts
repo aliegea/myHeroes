@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Heroe } from 'src/app/interfaces/HeroInterface';
+import { MySelectedHero } from 'src/app/interfaces/MySelectedHero';
 import { HeroesService } from '../../services/heroes.service';
 import { TeamService } from '../../services/team.service';
 
@@ -11,7 +12,7 @@ import { TeamService } from '../../services/team.service';
 })
 export class HeroCardComponent implements OnInit {
   @Input() heroe!: Heroe;
-  teamHeros!: any;
+  teamHeroes: MySelectedHero[] = [];
 
   constructor(
     private heroesService: HeroesService,
@@ -21,12 +22,7 @@ export class HeroCardComponent implements OnInit {
 
   addHero() {
     this.heroesService.sendHeroe(this.heroe);
-    this.teamService.getTeamData().subscribe((resp) => {
-      this.teamHeros = resp;
-    });
-    if (localStorage.getItem('my Heroes') == undefined) {
-      sessionStorage.setItem('My Heroes', JSON.stringify(this.teamHeros));
-    }
+
     this.route.navigate(['/heroeTeam']);
   }
 
